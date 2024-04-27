@@ -1,0 +1,97 @@
+{
+  "name": "lean3-local-copilot",
+  "displayName": "Lean3 Local Copilot",
+  "publisher": "XijiaTao",
+  "description": "Auto-complete Lean 3 proofs with local LLMs or e.g., OpenAI models via API.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:lean"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "lean3-local-copilot.completeProof",
+        "title": "Complete a Lean 3 proof with a local LLM"
+      },
+      {
+        "command": "lean3-local-copilot.completeOpenAIProof",
+        "title": "Complete a Lean 3 proof with an OpenAI model"
+      }
+    ],
+    "configuration": {
+      "title": "Lean3 Local Copilot",
+      "properties": {
+        "Lean3 Local Copilot.Use a local LLM for completion": {
+          "type": "boolean",
+          "default": true,
+          "description": "Specifies whether to use a local LLM model for completion. Default to true. Otherwise use OpenAI API."
+        },
+        "Lean3 Local Copilot.OpenAI API Key": {
+          "type": "string",
+          "default": "",
+          "description": "Specifies the OpenAI API key begining with sk-. Otherwise the extension will use the default API key from the environment."
+        },
+        "Lean3 Local Copilot.OpenAI Model": {
+          "type": "string",
+          "default": "gpt-3.5-turbo",
+          "description": "Specifies the OpenAI model to use for completion."
+        },
+        "Lean3 Local Copilot.OpenAI Base URL": {
+          "type": "string",
+          "default": "https://api.openai.com/v1",
+          "description": "Specifies the base URL for the OpenAI API."
+        },
+        "Lean3 Local Copilot.Local LLM API Server Path": {
+          "type": "string",
+          "default": "http://localhost:8001/v1",
+          "description": "Specifies the path to the local LLM model server."
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "lean",
+        "extensions": [
+          ".lean"
+        ],
+        "aliases": [
+          "Lean",
+          "lean"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.88.0",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "openai": "^4.38.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xijia-tao/Lean3-Local-LLM-Copilot.git"
+  }
+}

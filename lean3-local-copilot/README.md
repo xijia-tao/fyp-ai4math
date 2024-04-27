@@ -1,0 +1,7 @@
+# Lean3 Local Copilot
+
+Lean3 Local Copilot is an innovative VS Code extension that enhances the coding experience for Lean 3 language users by providing advanced auto-completion for proof scripts. This extension taps into the power of both local Large Language Models (LLMs) and the OpenAI API to aid users in effectively completing proofs within their code. It is a versatile tool, allowing customization based on user preference for either local model computations or cloud-based AI completions.
+
+One of its core features includes two distinct commands for auto-completing proofs; one utilizes a local LLM, while the other connects to an OpenAI model. Further flexibility is offered through configuration settings, enabling users to specify their choice for completions, include their own OpenAI API key, select the desired OpenAI model, set the base URL for OpenAI API, and determine the path to their local LLM API server.
+
+This extension requires Visual Studio Code version 1.88. or higher. Upon activation, it caters specifically to files written in the Lean language, providing a significant productivity boost for users developing formal proofs, ensuring a seamless and more intuitive proof-writing process.
